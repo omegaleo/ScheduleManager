@@ -4,6 +4,9 @@
 
 <div class="text-center">
    <h1 class="display-4">Schedule Manager</h1><br>
+   <div> 
+        @DateTime.Now 
+    </div><br>
     @if (SignInManager.IsSignedIn(User))
     {
         <p>User signed in</p>
