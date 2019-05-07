@@ -1,0 +1,18 @@
+@model ScheduleManager.Models.LoginViewModel
+@{
+    ViewData["Title"]= "Login";
+}
+
+<form asp-controller="Account" asp-action="Login">
+    <div>
+        <label class="fieldLbl">Username:</label><br>
+        <input type="text" placeholder="Username" asp-for="Username"/><br>
+    </div><br>
+    <div>
+        <label class="fieldLbl">Password:</label><br>
+        <input type="password" placeholder="Password" asp-for="Password"/><br>
+    </div>
+    <div>
+        <input type="submit" value="Login"/>
+    </div>
+</form>
