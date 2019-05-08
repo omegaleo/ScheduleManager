@@ -152,6 +152,27 @@ namespace ScheduleManager.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "AspNetUserSchedules",
+                columns: table => new
+                {
+                    UserId      = table.Column<string>(nullable: false),
+                    Title       = table.Column<string>(nullable: false),
+                    Time        = table.Column<TimeSpan>(nullable: false),
+                    Day         = table.Column<DayOfWeek>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AspNetUserSchedules", x=> new {x.Title});
+                    table.ForeignKey(
+                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                }
+            );
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -187,6 +208,12 @@ namespace ScheduleManager.Data.Migrations
                 name: "UserNameIndex",
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "ScheduleTitleIndex",
+                table: "AspNetUserSchedules",
+                column: "Title",
                 unique: true);
         }
 

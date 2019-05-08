@@ -16,7 +16,6 @@
 /media/omegaleo/DE70E64E70E62CC9/GitProjects/ScheduleManager/obj/Debug/netcoreapp2.2/ScheduleManager.TagHelpers.output.cache
 /media/omegaleo/DE70E64E70E62CC9/GitProjects/ScheduleManager/obj/Debug/netcoreapp2.2/ScheduleManager.RazorCoreGenerate.cache
 /media/omegaleo/DE70E64E70E62CC9/GitProjects/ScheduleManager/obj/Debug/netcoreapp2.2/Razor/Areas/Identity/Pages/_ViewStart.g.cshtml.cs
-/media/omegaleo/DE70E64E70E62CC9/GitProjects/ScheduleManager/obj/Debug/netcoreapp2.2/Razor/Views/Account/Login.g.cshtml.cs
 /media/omegaleo/DE70E64E70E62CC9/GitProjects/ScheduleManager/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs
 /media/omegaleo/DE70E64E70E62CC9/GitProjects/ScheduleManager/obj/Debug/netcoreapp2.2/Razor/Views/Home/Privacy.g.cshtml.cs
 /media/omegaleo/DE70E64E70E62CC9/GitProjects/ScheduleManager/obj/Debug/netcoreapp2.2/Razor/Views/Shared/Error.g.cshtml.cs

@@ -1,4 +1,5 @@
-Configs/db.ini
+build.sh
+debug.sh
 
 ### ASPNETCore ###
 ## Ignore Visual Studio temporary files, build results, and
