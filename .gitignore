@@ -1,5 +1,6 @@
 build.sh
 debug.sh
+app.db
 
 ### ASPNETCore ###
 ## Ignore Visual Studio temporary files, build results, and

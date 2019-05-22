@@ -1,8 +1,8 @@
 # Schedule Manager
 
- ASP.NET Core Progressive Web App for a Schedule Manager with notifications
+ PHP Progressive Website for a Schedule Manager with notifications
 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE.md) file for details
