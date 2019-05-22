@@ -1,5 +1,19 @@
 <?php
+    define("RootFolder",__DIR__);
+    IncludeTools();
 
+    $debug=TRUE;
+
+    if($debug==TRUE)
+    {
+        error_reporting(E_ALL);
+        ini_set('display_errors', 'On');
+    }
+
+    function GetRootFolder()
+    {
+        return constant("RootFolder");
+    }
 
     function HeaderImports()
     {
@@ -8,7 +22,7 @@
         {
             if(strpos($file,".css")!==false)
             {
-                echo "<link rel='stylesheet' href='".(GetRootFolder()."/library/css/".$file)."'/>";
+                echo "<link rel='stylesheet' href='library/css/".$file."'/>";
             }
         }
 
@@ -17,7 +31,7 @@
         {
             if(strpos($file,".js")!==false)
             {
-                echo "<script src='".(GetRootFolder()."/library/js/".$file)."'/>";
+                echo "<script src='library/js/".$file."'></script>";
             }
         }
 
@@ -26,7 +40,7 @@
         {
             if(strpos($file,".css")!==false)
             {
-                echo "<link rel='stylesheet' href='".(GetRootFolder()."/css/".$file)."'/>";
+                echo "<link rel='stylesheet' href='css/".$file."'/>";
             }
         }
 
@@ -35,7 +49,7 @@
         {
             if(strpos($file,".js")!==false)
             {
-                echo "<script src='".(GetRootFolder()."/js/".$file)."'/>";
+                echo "<script src='js/".$file."'></script>";
             }
         }
     }
