@@ -1,5 +1,5 @@
 /*Global CSS style*/
-body {
+  body {
     padding: 0;
     margin: 0;
     background: #f2f6e9;
@@ -7,6 +7,7 @@ body {
   /*--- navigation bar ---*/
   .navbar {
     background:#6ab446;
+    width: 100%;
   }
   .nav-link,
   .navbar-brand {
@@ -25,4 +26,55 @@ body {
 
   .content{
       text-align:center;
+  }
+
+  .footer {
+    background:#6ab446;
+    color: #fff;
+  }
+  .footer a{
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .footer a:hover {
+    color: #000;
+  }
+
+  .header{
+    display: flex !important;
+    flex: 0 1 auto !important;
+  }
+
+  .footer {
+    display: flex !important;
+    align-items: center;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    padding: 0.5rem 1rem;
+    width: auto !important;
+    flex: 0 1 auto !important;
+  }
+
+  .content{
+    display: flex !important;
+    flex: 1 1 auto !important;
+    overflow: auto;
+    flex-direction: column; 
+  }
+
+  body{
+    height: 100% !important;
+    margin: 0;
+  }
+
+  .box {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+
+  .madeBy img{
+    width:48px !important;
+    height: auto !important;
   }
