@@ -43,3 +43,25 @@
         if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
         return i;
     }
+
+    function TabPage(id)
+    {
+        var tab = document.getElementById(id);
+        var tabPage = document.getElementById("tP"+id);
+
+        var tabs = document.getElementsByClassName("tab");
+        var tabPages = document.getElementsByClassName("tabPage");
+
+        for(var i=0; i<tabs.length; i++)
+        {
+            tabs[i].classList.remove("selected");
+        }
+
+        for(var j=0; j<tabPages.length; j++)
+        {
+            tabPages[j].classList.add("hidden");
+        }
+
+        tab.classList.add("selected");
+        tabPage.classList.remove("hidden");
+    }

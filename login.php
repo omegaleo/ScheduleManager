@@ -5,7 +5,10 @@
     {
         $username = $_COOKIE['username'];
         if($username!="")
+        {
             $loggedIn = true;
+            header("Location: index.php"); //User is logged in so redirect to index
+        }
     }
 ?>
 <html>
@@ -15,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8"> 
     </head>
-    <body onload="startTime()">
+    <body>
         <div class="box">
             <header class="page-header header container-fluid">
                 <nav class="navbar navbar-expand-md">
@@ -47,8 +50,32 @@
                 </nav>
             </header>
             <div class="page-content content container-fluid">
-            <div class="page-title"><h1 class="title">Schedule Manager</h1></div><br>
-                <span id="dateTime"></span>
+                <div class="page-title"><h1 class="title">Login</h1></div><br>
+                <div class="tabControl">
+                    <div class="tabs">
+                        <button class="tab selected" id="Login" onclick="TabPage(this.id);">Login</button>
+                        <button class="tab" id="Register" onclick="TabPage(this.id);">Register</button>
+                    </div>
+                    <div class="tabPages">
+                        <div id="tPLogin" class="tabPage">
+                                <form action="#" class="loginForm" method="POST">
+                                    <input type="text" name="username" placeholder="Username"/><br>
+                                    <input type="text" name="password" placeholder="Password"/><br>
+                                    <input type="hidden" name="type" value="login"/>
+                                    <input type="submit" value="Login"/>
+                                </form>
+                        </div>
+                        <div id="tPRegister" class="tabPage hidden">
+                                <form action="#" class="registerForm" method="POST">
+                                    <input type="text" name="username" placeholder="Username"/><br>
+                                    <input type="text" name="password" placeholder="Password"/><br>
+                                    <input type="text" name="password" placeholder="Email"/><br>
+                                    <input type="hidden" name="type" value="register"/>
+                                    <input type="submit" value="Register"/>
+                                </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <footer class="page-footer footer container-fluid fixed-bottom">
                 <span class="madeBy">Made by <a href="https://omegaleo.pt" targt="_blank"><img src="img/Logo.png"></a></span>
