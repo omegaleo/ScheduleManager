@@ -10,6 +10,63 @@
             header("Location: index.php"); //User is logged in so redirect to index
         }
     }
+
+    if(!empty($_POST))
+    {
+        $type = $_POST['type'];
+        if($type=="register")
+        {
+            $conn = GetConnection();
+            $username = mysqli_real_escape_string($conn,$_POST["username"]);
+            $password = Encrypt(mysqli_real_escape_string($conn,$_POST["password"]));
+            $email = mysqli_real_escape_string($conn,$_POST["email"]);
+            $guid = gen_uuid();
+
+            if($username!="" && $email!="")
+            {
+                $userExists = CheckIfTableContainsValue("Users","Username",$username);
+                $emailExists = CheckIfTableContainsValue("Users","Email",$email);
+                $guidExists = CheckIfTableContainsValue("Users","GUID",$guid);
+
+                while($guidExists) //To make sure there's no repeated GUIDs
+                {
+                    $guid = gen_uuid();
+                    $guidExists = CheckIfTableContainsValue("Users","GUID",$guid);
+                }
+
+                if(!$userExists && !$emailExists)
+                {
+                    if(ExecuteQuery("INSERT INTO Users VALUES('','".$guid."','".$username."','".$password."','".$email."')"))
+                    {
+                        echo "<script>alert('Registered successfully!');</script>";
+                    }
+                    else
+                    {
+                        echo "<script>alert('Error while registering!');</script>";
+                    }
+                }
+            }
+        }
+        else if($type=="login")
+        {
+            $conn = GetConnection();
+            $username = mysqli_real_escape_string($conn,$_POST["username"]);
+            $password = Encrypt(mysqli_real_escape_string($conn,$_POST["password"]));
+            $query = mysqli_query($conn,"SELECT * FROM `Users` WHERE `Username`='".$username."' AND `Password`='".$password."'");
+            if(mysqli_num_rows($query) > 0)
+            {
+                $expire = time() + (1*30*24*3600); //expire in 1 month
+                ob_start();
+                setcookie('username',$username, $expire, '/', 'localhost');
+                ob_end_flush();
+                echo "<script>alert('Logged in!'); window.location.href='index.php';</script>";
+            }
+            else
+            {
+                echo "<script>alert('Wrong Username and/or Password');</script>";
+            }
+        }
+    }
 ?>
 <html>
     <head>
@@ -22,7 +79,7 @@
         <div class="box">
             <header class="page-header header container-fluid">
                 <nav class="navbar navbar-expand-md">
-                    <a class="navbar-brand" href="index.php">Logo</a>
+                    <a class="navbar-brand" href="index.php">Schedule Manager</a>
                     <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -60,7 +117,7 @@
                         <div id="tPLogin" class="tabPage">
                                 <form action="#" class="loginForm" method="POST">
                                     <input type="text" name="username" placeholder="Username"/><br>
-                                    <input type="text" name="password" placeholder="Password"/><br>
+                                    <input type="password" name="password" placeholder="Password"/><br>
                                     <input type="hidden" name="type" value="login"/>
                                     <input type="submit" value="Login"/>
                                 </form>
@@ -68,8 +125,8 @@
                         <div id="tPRegister" class="tabPage hidden">
                                 <form action="#" class="registerForm" method="POST">
                                     <input type="text" name="username" placeholder="Username"/><br>
-                                    <input type="text" name="password" placeholder="Password"/><br>
-                                    <input type="text" name="password" placeholder="Email"/><br>
+                                    <input type="password" name="password" placeholder="Password"/><br>
+                                    <input type="email" name="email" placeholder="Email"/><br>
                                     <input type="hidden" name="type" value="register"/>
                                     <input type="submit" value="Register"/>
                                 </form>

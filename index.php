@@ -19,7 +19,7 @@
         <div class="box">
             <header class="page-header header container-fluid">
                 <nav class="navbar navbar-expand-md">
-                    <a class="navbar-brand" href="index.php">Logo</a>
+                    <a class="navbar-brand" href="index.php">Schedule Manager</a>
                     <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
