@@ -57,7 +57,7 @@
             {
                 $expire = time() + (1*30*24*3600); //expire in 1 month
                 ob_start();
-                setcookie('username',$username, $expire, '/', 'localhost');
+                setcookie('username',$username, $expire, '/');
                 ob_end_flush();
                 echo "<script>alert('Logged in!'); window.location.href='index.php';</script>";
             }

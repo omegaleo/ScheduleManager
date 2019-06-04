@@ -30,7 +30,7 @@
                                 if($loggedIn)
                                 {
                             ?>
-                                    <p class="nav-link"><?php echo $_COOKIE['username']; ?></p>
+                                    <a class="nav-link" href="#"><?php echo $_COOKIE['username']; ?></a>
                                     <a class="nav-link" href="logout.php">Logout</a>
                             <?php
                                 }
