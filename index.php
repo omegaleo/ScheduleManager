@@ -49,6 +49,10 @@
             <div class="page-content content container-fluid">
                 <div class="page-title"><h1 class="title">Schedule Manager</h1></div><br>
                 <span id="dateTime"></span>
+                <?php
+                    if(isset($_COOKIE['username']))
+                    {
+                ?>
                 <span class="lblEvents">Today's events:</span><br>
                 <?php 
                     $date = date('Y-m-d');
@@ -64,6 +68,9 @@
                     $dayOfWeek = $days[date('N')];
 
                     echo GetTableWithConditions("Tasks","UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."')","ID,GUID,UserGUID"); 
+                ?>
+                <?php
+                    }
                 ?>
             </div>
             <footer class="page-footer footer container-fluid fixed-bottom">

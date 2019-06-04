@@ -1,7 +1,5 @@
 <?php
-    if (isset($_COOKIE['Username'])) {
-        unset($_COOKIE['Username']);
-    }
-
+    session_destroy();
+    setcookie('username',"", -1, '/');
     header("Location: index.php");
 ?>
