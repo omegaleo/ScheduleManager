@@ -38,10 +38,10 @@
         }
     }
 
-    function GetTableValue($table, $column, $id)
+    function GetTableValue($table, $column, $conditions="")
     {
         $conn = GetConnection();
-        $result = mysqli_query($conn,'SELECT '.$column.' FROM '.$table.' WHERE ID='.$id);
+        $result = mysqli_query($conn,'SELECT '.$column.' FROM '.$table. ' '.$conditions);
         $value = mysqli_fetch_assoc($result);
 
         return $value[$column];
@@ -141,6 +141,58 @@
 
         return $html;
     }
+
+    function GetTableWithConditions($table,$conditions,$fieldsToIgnore="") //Returns a fully constructed table with headers, fieldsToIgnore separated by a comma
+    {
+        $html = "<table id='sqlTable' class='table".$table."'>
+                    <tr>";
+        //Get table headers
+        $conn = GetConnection();
+        $sql = "SHOW COLUMNS FROM ".$table;
+        $res = $conn->query($sql);
+
+        $fieldsToIgnoreArr = explode(",", $fieldsToIgnore);
+
+
+        if($res!==false)
+        {
+            while($row=$res->fetch_assoc())
+            {
+                if(!in_array($row['Field'],$fieldsToIgnoreArr))
+                    $html .= "<th>".$row['Field']."</th>";
+            }
+        }
+
+        $html .= "</tr>";
+
+        $sql = "SELECT * FROM ".$table . " WHERE " . $conditions;
+        $res = $conn->query($sql);
+
+        if($res!==false)
+        {
+            while($row=$res->fetch_assoc())
+            {
+                $html .= "<tr>";
+                $sql2 = "SHOW COLUMNS FROM ".$table;
+                $res2 = $conn->query($sql2);
+                if($res!==false)
+                {
+                    while($row2=$res2->fetch_assoc())
+                    {
+                        if(!in_array($row2['Field'],$fieldsToIgnoreArr))
+                            $html .= "<td>".$row[$row2['Field']]."</td>";
+                    }
+                }
+                $html .= "</tr>";
+            }
+        }
+
+        $html .= "</table>";
+
+        return $html;
+    }
+
+    
 
     function CheckIfTableContainsValue($table,$field,$value)
     {

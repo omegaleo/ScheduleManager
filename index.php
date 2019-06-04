@@ -47,8 +47,24 @@
                 </nav>
             </header>
             <div class="page-content content container-fluid">
-            <div class="page-title"><h1 class="title">Schedule Manager</h1></div><br>
+                <div class="page-title"><h1 class="title">Schedule Manager</h1></div><br>
                 <span id="dateTime"></span>
+                <span class="lblEvents">Today's events:</span><br>
+                <?php 
+                    $date = date('Y-m-d');
+                    $days = [
+                        1 => 'Sunday',
+                        2 => 'Monday',
+                        3 => 'Tuesday',
+                        4 => 'Wednesday',
+                        5 => 'Thursday',
+                        6 => 'Friday',
+                        7 => 'Saturday'
+                      ];
+                    $dayOfWeek = $days[date('N')];
+
+                    echo GetTableWithConditions("Tasks","UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."')","ID,GUID,UserGUID"); 
+                ?>
             </div>
             <footer class="page-footer footer container-fluid fixed-bottom">
                 <span class="madeBy">Made by <a href="https://omegaleo.pt" targt="_blank"><img src="img/Logo.png"></a></span>
