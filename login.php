@@ -75,7 +75,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8"> 
     </head>
-    <body>
+    <body onload="DarkModeCheck()">
         <div class="box">
             <header class="page-header header container-fluid">
                 <nav class="navbar navbar-expand-md">
@@ -86,12 +86,21 @@
                     <div class="collapse navbar-collapse" id="main-navigation">
                         <ul class="navbar-nav">
                         <li class="nav-item">
+                            <!--<button onclick="DarkModeToggle()">Dark Mode</button>-->
+                            <div id="darkModeSwitch" class="toggle-btn" onclick="DarkModeToggle()">
+                                <div class="inner-circle"><i id="darkModeIcon" class="fas fa-sun"></i></div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
                             <?php
                                 if($loggedIn)
                                 {
                             ?>
-                                    <p class="nav-link"><?php echo $_COOKIE['username']; ?></p>
+                                    <a class="nav-link" href="#"><?php echo $_COOKIE['username']; ?></a>
+                        </li>
+                        <li class="nav-item">
                                     <a class="nav-link" href="logout.php">Logout</a>
+                        </li>
                             <?php
                                 }
                                 else

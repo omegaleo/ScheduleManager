@@ -1,12 +1,18 @@
+:root{
+  --panel-bgcolor: #6ab446;
+  --bgcolor:#f2f6e9;
+  --content-color:#000;
+}
+
 /*Global CSS style*/
   body {
     padding: 0;
     margin: 0;
-    background: #f2f6e9;
+    background: var(--bgcolor);
   }
   /*--- navigation bar ---*/
   .navbar {
-    background:#6ab446;
+    background: var(--panel-bgcolor);
     width: 100%;
   }
   .nav-link,
@@ -18,7 +24,7 @@
     margin-right: 1em !important;
   }
   .nav-link:hover {
-    color: #000;
+    color: var(--content-color);
   }
   .navbar-collapse {
     justify-content: flex-end;
@@ -29,7 +35,7 @@
   }
 
   .footer {
-    background:#6ab446;
+    background: var(--panel-bgcolor);
     color: #fff;
   }
   .footer a{
@@ -38,7 +44,7 @@
   }
 
   .footer a:hover {
-    color: #000;
+    color: var(--content-color);
   }
 
   .header{
@@ -68,6 +74,7 @@
   body{
     height: 100% !important;
     margin: 0;
+    color: var(--content-color);
   }
 
   .box {
@@ -129,7 +136,7 @@
   }
 
   .tableTasks tr:first-child{
-    background-color: aquamarine;
+    background-color: var(--panel-bgcolor);
     color: white;
   }
 
@@ -140,4 +147,40 @@
 
   #dateTime, .lblEvents{
     margin:0 auto;
+  }
+
+
+  /*Toggle Switch*/
+
+  .toggle-btn{
+    width: 50px;
+    height: 24px;
+    background: gray;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 9px;
+  }
+
+  .toggle-btn > .inner-circle {
+    width: 16px;
+    height: 16px;
+    position:relative;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  .toggle-btn.active {
+    background: #00acee;
+  }
+
+  .toggle-btn.active > .inner-circle{
+    margin-left: 25px;
+  }
+
+  #darkModeIcon{
+    color: #000 !important;
+  }
+
+  .navbar-brand:hover{
+    color: var(--content-color) !important;
   }

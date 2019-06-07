@@ -41,6 +41,8 @@ var notifiedTasks = [];
         document.getElementById('dateTime').innerHTML = dayOfWeek + " " + dateString + " " + h + ":" + m + ":" + s;
         var t = setTimeout(startTime, 500);
         var t2 = setTimeout(CheckNotifications, 500);
+
+        DarkModeCheck();
     }
 
     function CheckNotifications()
@@ -220,4 +222,47 @@ var notifiedTasks = [];
     function removeSpaces(string)
     {
         return string.replace(" ","");
+    }
+
+    function DarkModeCheck()
+    {
+        let root = document.documentElement;
+        if(getCookie("darkmode")=="true")
+        {
+            if(!document.getElementById("darkModeSwitch").classList.contains("active"))
+            {
+                root.style.setProperty("--panel-bgcolor", "#000");
+                root.style.setProperty("--bgcolor", "#565656");
+                root.style.setProperty("--content-color", "#fff");
+                document.getElementById("darkModeSwitch").classList.add("active");
+                document.getElementById("darkModeIcon").classList.add("fa-moon");
+                document.getElementById("darkModeIcon").classList.remove("fa-sun");
+            }
+        }
+        else
+        {
+            if(document.getElementById("darkModeSwitch").classList.contains("active"))
+            {
+                root.style.setProperty("--panel-bgcolor", "#6ab446");
+                root.style.setProperty("--bgcolor", "#f2f6e9");
+                root.style.setProperty("--content-color", "#000");
+                document.getElementById("darkModeSwitch").classList.remove("active");
+                document.getElementById("darkModeIcon").classList.add("fa-sun");
+                document.getElementById("darkModeIcon").classList.remove("fa-moon");
+            }
+        }
+    }
+
+    function DarkModeToggle()
+    {
+        if(getCookie("darkmode")=="true")
+        {
+            setCookie("darkmode","false");
+        }
+        else
+        {
+            setCookie("darkmode","true");
+        }
+
+        DarkModeCheck();
     }
