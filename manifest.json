@@ -1,0 +1,15 @@
+{
+    "short_name": "Schedule",
+    "name": "Schedule Manager",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "type": "image/png",
+        "sizes": "48x48"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "theme_color": "#3367D6"
+  }

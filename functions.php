@@ -18,6 +18,8 @@
 
     function HeaderImports()
     {
+        echo '<link rel="shortcut icon" type="image/png" href="favicon.png"/>';
+        echo '<link rel="manifest" href="/manifest.json">';
         $files = scandir(GetRootFolder().'/library/css');
         foreach($files as $file)
         {
