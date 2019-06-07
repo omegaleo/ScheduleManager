@@ -155,6 +155,7 @@ var notifiedTasks = [];
 
     function Notify(string)
     {
+        document.getElementById("notification_player").play();
         Notification.requestPermission().then(function(result){
             var notification = new Notification('Schedule Manager', {
                 icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',

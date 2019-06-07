@@ -99,6 +99,10 @@
                 <input type="hidden" name="userGUID" value="<?php echo GetTableValue("Users", "GUID", "WHERE Username='".$username."'"); ?>"/><br>
                 <input type="submit" value="Add"/>
             </form>
+            <audio controls="controls" class="hidden" id="notification_player">
+                <source src="media/notification.wav" type="audio/wav" />
+                Your browser does not support the audio element.
+            </audio>
             <footer class="page-footer footer container-fluid fixed-bottom">
                 <span class="madeBy">Made by <a href="https://omegaleo.pt" targt="_blank"><img src="img/Logo.png"></a></span>
             </footer>
