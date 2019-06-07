@@ -224,4 +224,10 @@
 
         }
     }
+
+    function PrepareValue($value)
+    {
+        $con = GetConnection();
+        return $con->real_escape_string($value);
+    }
 ?>

@@ -1,6 +1,6 @@
 <?php
     include("../functions.php");
-    $description = $_POST['desc'];
+    $description = PrepareValue($_POST['desc']);
     $repeat="0";
     if(!empty($_POST['repeat']))
     {

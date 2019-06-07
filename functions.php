@@ -1,5 +1,6 @@
 <?php
     define("RootFolder",__DIR__);
+    date_default_timezone_set('Europe/London'); 
     IncludeTools();
     session_start();
     $debug=TRUE;
