@@ -213,12 +213,15 @@ var notifiedTasks = [];
         if(cookies!=undefined && cookies!=null && cookies.length>0)
         {
             for (var i = 0; i < cookies.length; i++) {
-                var name = removeSpaces(cookies[i].split('=')[0].toLowerCase());
-                var value = removeSpaces(cookies[i].split('=')[1].toLowerCase());
-                if (name == input) {
-                  return value;
-                } else if (value == input) {
-                  return name;
+                if(cookies[i]!="" && cookies[i]!=null && cookies[i]!=undefined)
+                {
+                    var name = removeSpaces(cookies[i].split('=')[0].toLowerCase());
+                    var value = removeSpaces(cookies[i].split('=')[1].toLowerCase());
+                    if (name == input) {
+                      return value;
+                    } else if (value == input) {
+                      return name;
+                    }
                 }
               }
               return "";
