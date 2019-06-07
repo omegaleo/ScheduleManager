@@ -156,11 +156,13 @@ var notifiedTasks = [];
     function Notify(string)
     {
         document.getElementById("notification_player").play();
+        navigator.serviceWorker.register('sw.js');
         Notification.requestPermission().then(function(result){
-            var notification = new Notification('Schedule Manager', {
-                icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-                body: string,
-            });
+            if (result === 'granted') {
+                navigator.serviceWorker.ready.then(function(registration) {
+                    registration.showNotification(string);
+                });
+            }
         });
     }
 
