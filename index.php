@@ -10,8 +10,7 @@
 ?>
 <html>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
-        <script src="http://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
         <?php HeaderImports(); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8"> 
