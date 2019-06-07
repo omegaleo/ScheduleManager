@@ -145,7 +145,7 @@
     padding-left: 20px;
   }
 
-  #dateTime, .lblEvents{
+  #dateTime, .lblEvents, .addTaskBtn{
     margin:0 auto;
   }
 
@@ -183,4 +183,48 @@
 
   .navbar-brand:hover{
     color: var(--content-color) !important;
+  }
+
+  form#addTask {
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    min-height: 273px;
+    margin-top: -159px;
+    margin-left: -250px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: var(--panel-bgcolor);
+  }
+
+  #addTask input, #addTask select{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .formCloseButton{
+    position: absolute;
+    right: 24px;
+    top: 10px;
+    background-color: red;
+    width: 22px;
+    border-radius: 5px;
+  }
+
+  .formCloseButton:hover{
+    background-color: darkred;
+  }
+
+  #addTask input[type=submit] {
+    border-radius: 10px;
+    border-color: #0fbf76;
+    background-color: #fff;
+    box-shadow: none !important;
+  }
+
+  #addTask input[type=submit]:hover{
+    background-color: #0fbf76;
+    color:#fff !important;
   }

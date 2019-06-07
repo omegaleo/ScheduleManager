@@ -62,6 +62,7 @@
                     if(isset($_COOKIE['username']))
                     {
                 ?>
+                <a class="addTaskBtn" onclick="ToggleObjectActive('addTask');">Add Task</a><br>
                 <span class="lblEvents">Today's events:</span><br>
                 <?php 
                     $date = date('Y-m-d');
@@ -72,6 +73,32 @@
                     }
                 ?>
             </div>
+
+            <form class="hidden" id="addTask" action="actions/add_task.php" method="POST">
+                <a class="formCloseButton" onclick="ToggleObjectActive('addTask');">X</a><br>
+                <h3>Add Task</h3>
+                <input type="text" name="desc" placeholder="Description"/><br>
+                <span>Repeat?</span>&nbsp;<input type="checkbox" name="repeat"/><br>
+                <span>Repeat Rate:</span>&nbsp;<select name="repeatRate">
+                    <option value="" selected></option>
+                    <option value="Daily">Daily</option>
+                    <option value="Weekly">Weekly</option>
+                </select><br>
+                <span>Date:</span>&nbsp;<input type="date" name="taskDate"/><br>
+                <span>Day of the Week:</span>&nbsp;<select name="dayOfWeek">
+                    <option value="" selected></option>
+                    <option value="0">Sunday</option>
+                    <option value="1">Monday</option>
+                    <option value="2">Tuesday</option>
+                    <option value="3">Wednesday</option>
+                    <option value="4">Thursday</option>
+                    <option value="5">Friday</option>
+                    <option value="6">Saturday</option>
+                </select><br>
+                <span>Time:</span>&nbsp;<input type="time" name="time" name="hour"/>
+                <input type="hidden" name="userGUID" value="<?php echo GetTableValue("Users", "GUID", "WHERE Username='".$username."'"); ?>"/><br>
+                <input type="submit" value="Add"/>
+            </form>
             <footer class="page-footer footer container-fluid fixed-bottom">
                 <span class="madeBy">Made by <a href="https://omegaleo.pt" targt="_blank"><img src="img/Logo.png"></a></span>
             </footer>

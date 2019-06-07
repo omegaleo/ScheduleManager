@@ -275,3 +275,16 @@ var notifiedTasks = [];
 
         DarkModeCheck();
     }
+
+    function ToggleObjectActive(id)
+    {
+        var obj = document.getElementById(id);
+        if(obj.classList.contains("hidden"))
+        {
+            obj.classList.remove("hidden");
+        }
+        else
+        {
+            obj.classList.add("hidden");
+        }
+    }
