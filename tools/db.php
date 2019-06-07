@@ -180,7 +180,17 @@
                     while($row2=$res2->fetch_assoc())
                     {
                         if(!in_array($row2['Field'],$fieldsToIgnoreArr))
-                            $html .= "<td>".$row[$row2['Field']]."</td>";
+                        {
+                            if($row2['Field']=="DayOfWeek")
+                            {
+                                $html .= "<td>".getDayOfWeekString($row[$row2['Field']])."</td>";
+                            }
+                            else
+                            {
+                                $html .= "<td>".$row[$row2['Field']]."</td>";
+                            }
+                        }
+                            
                     }
                 }
                 $html .= "</tr>";

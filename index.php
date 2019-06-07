@@ -56,17 +56,7 @@
                 <span class="lblEvents">Today's events:</span><br>
                 <?php 
                     $date = date('Y-m-d');
-                    $days = [
-                        1 => 'Sunday',
-                        2 => 'Monday',
-                        3 => 'Tuesday',
-                        4 => 'Wednesday',
-                        5 => 'Thursday',
-                        6 => 'Friday',
-                        7 => 'Saturday'
-                      ];
-                    $dayOfWeek = $days[date('N')];
-
+                    $dayOfWeek = date('w');
                     echo GetTableWithConditions("Tasks","UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."')","ID,GUID,UserGUID"); 
                 ?>
                 <?php

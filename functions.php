@@ -87,4 +87,19 @@
             mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
         );
     }
+
+    function getDayOfWeekString($dayOfWeekNumber)
+    {
+        $days = [
+            0 => 'Sunday',
+            1 => 'Monday',
+            2 => 'Tuesday',
+            3 => 'Wednesday',
+            4 => 'Thursday',
+            5 => 'Friday',
+            6 => 'Saturday'
+          ];
+        $dayOfWeek = $days[$dayOfWeekNumber];
+        return $dayOfWeek;
+    }
 ?>
