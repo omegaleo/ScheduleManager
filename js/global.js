@@ -88,9 +88,7 @@ var notifiedTasks = [];
                             {
                                 notifiedTasks.push(i);
                                 setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
-                                Notification.requestPermission().then(function(result){
-                                    alert(oCells.item(0).innerHTML);
-                                });
+                                Notify(oCells.item[0].innerHTML);
                             }
                         }
                     }
@@ -118,9 +116,7 @@ var notifiedTasks = [];
                                 {
                                     notifiedTasks.push(i); 
                                     setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
-                                    Notification.requestPermission().then(function(result){
-                                        alert(oCells.item(0).innerHTML);
-                                    });
+                                    Notify(oCells.item(0).innerHTML);
                                 }
                             }
                         }
@@ -146,15 +142,20 @@ var notifiedTasks = [];
                             {
                                 notifiedTasks.push(i);     
                                 setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
-                                Notification.requestPermission().then(function(result){
-                                    alert(oCells.item(0).innerHTML);
-                                });
+                                Notify(oCells.item(0).innerHTML);
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    function Notify(string)
+    {
+        Notification.requestPermission().then(function(result){
+            alert(string);
+        });
     }
 
     function checkTime(i) 
