@@ -57,7 +57,7 @@
                 <?php 
                     $date = date('Y-m-d');
                     $dayOfWeek = date('w');
-                    echo GetTableWithConditions("Tasks","UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND (Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."'))","ID,GUID,UserGUID"); 
+                    echo GetTableWithConditions("Tasks","UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND (Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."') OR (RepeatRate='Daily'))","ID,GUID,UserGUID"); 
                 ?>
                 <?php
                     }
