@@ -1,6 +1,14 @@
 //Global Variables
 var notifiedTasks = [];
 
+// Register your service worker:
+navigator.serviceWorker.register('/sw.js');
+
+// Then later, request a one-off sync:
+navigator.serviceWorker.ready.then(function(swRegistration) {
+  return swRegistration.sync.register('notify');
+});
+
 //Global JS Functions
     function startTime()
     {
@@ -160,7 +168,6 @@ var notifiedTasks = [];
     function Notify(string)
     {
         document.getElementById("notification_player").play();
-        navigator.serviceWorker.register('sw.js');
         Notification.requestPermission().then(function(result){
             if (result === 'granted') {
                 navigator.serviceWorker.ready.then(function(registration) {
