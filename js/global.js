@@ -55,60 +55,33 @@ var notifiedTasks = [];
 
          //gets table
         var oTable = document.getElementById('sqlTable');
-
-        //gets rows of table
-        var rowLength = oTable.rows.length;
-
-        //loops through rows    
-        for (i = 0; i < rowLength; i++)
+        if(oTable!=null)
         {
-            //gets cells of current row  
-            var oCells = oTable.rows.item(i).cells;
-            if(oCells.item(0) != undefined)
-            if(!notifiedTasks.includes(oCells.item(0).innerHTML.toLowerCase()))
+            //gets rows of table
+            var rowLength = oTable.rows.length;
+
+            //loops through rows    
+            for (i = 0; i < rowLength; i++)
             {
-                
-                var today = new Date();
-                var repeat = oCells.item(1).innerHTML;
-                var repeatRate = oCells.item(2).innerHTML;
-                var taskDate = oCells.item(3).innerHTML;
-                var DayOfWeek = oCells.item(4).innerHTML;
-                var Hour = oCells.item(5).innerHTML;
-                var h = today.getHours();
-                var m = today.getMinutes();
-                var s = today.getSeconds();
-
-                if(repeat=="1")
+                //gets cells of current row  
+                var oCells = oTable.rows.item(i).cells;
+                if(oCells.item(0) != undefined)
+                if(!notifiedTasks.includes(removeSpaces(oCells.item(0).innerHTML.toLowerCase())))
                 {
-                    if(repeatRate=="Daily")
-                    {
-                        m = checkTime(m);
-                        s = checkTime(s);
-                        
-                        var timeSplitArr = Hour.split(":");
-                        if(timeSplitArr[0]==h)
-                        {
-                            if(m>timeSplitArr[1] && m<=59)
-                            {
-                                notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase());
-                                setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
-                                Notify(oCells.item(0).innerHTML);
-                            }
-                        }
-                    }
-                    else if(repeatRate=="Weekly")
-                    {
-                        var weekday = new Array(7);
-                        weekday[0] =  "Sunday";
-                        weekday[1] = "Monday";
-                        weekday[2] = "Tuesday";
-                        weekday[3] = "Wednesday";
-                        weekday[4] = "Thursday";
-                        weekday[5] = "Friday";
-                        weekday[6] = "Saturday";
+                    
+                    var today = new Date();
+                    var repeat = oCells.item(1).innerHTML;
+                    var repeatRate = oCells.item(2).innerHTML;
+                    var taskDate = oCells.item(3).innerHTML;
+                    var DayOfWeek = oCells.item(4).innerHTML;
+                    var Hour = oCells.item(5).innerHTML;
+                    var h = today.getHours();
+                    var m = today.getMinutes();
+                    var s = today.getSeconds();
 
-                        var n = weekday[today.getDay()];
-                        if(DayOfWeek == n)
+                    if(repeat=="1")
+                    {
+                        if(repeatRate=="Daily")
                         {
                             m = checkTime(m);
                             s = checkTime(s);
@@ -118,35 +91,64 @@ var notifiedTasks = [];
                             {
                                 if(m>timeSplitArr[1] && m<=59)
                                 {
-                                    notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase()); 
+                                    notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase());
                                     setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
                                     Notify(oCells.item(0).innerHTML);
                                 }
                             }
                         }
-                    }
-                }
-                else if(repeat=="0")
-                {
-                    var today = new Date();
-                    var dd = String(today.getDate()).padStart(2, '0');
-                    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                    var yyyy = today.getFullYear();
-
-                    today = yyyy+"-"+mm+"-"+dd;
-                    if(taskDate == today)
-                    {
-                        m = checkTime(m);
-                        s = checkTime(s);
-                        
-                        var timeSplitArr = Hour.split(":");
-                        if(timeSplitArr[0]==h)
+                        else if(repeatRate=="Weekly")
                         {
-                            if(m>timeSplitArr[1] && m<=59)
+                            var weekday = new Array(7);
+                            weekday[0] =  "Sunday";
+                            weekday[1] = "Monday";
+                            weekday[2] = "Tuesday";
+                            weekday[3] = "Wednesday";
+                            weekday[4] = "Thursday";
+                            weekday[5] = "Friday";
+                            weekday[6] = "Saturday";
+
+                            var n = weekday[today.getDay()];
+                            if(DayOfWeek == n)
                             {
-                                notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase());     
-                                setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
-                                Notify(oCells.item(0).innerHTML);
+                                m = checkTime(m);
+                                s = checkTime(s);
+                                
+                                var timeSplitArr = Hour.split(":");
+                                if(timeSplitArr[0]==h)
+                                {
+                                    if(m>timeSplitArr[1] && m<=59)
+                                    {
+                                        notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase()); 
+                                        setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
+                                        Notify(oCells.item(0).innerHTML);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else if(repeat=="0")
+                    {
+                        var today = new Date();
+                        var dd = String(today.getDate()).padStart(2, '0');
+                        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                        var yyyy = today.getFullYear();
+
+                        today = yyyy+"-"+mm+"-"+dd;
+                        if(taskDate == today)
+                        {
+                            m = checkTime(m);
+                            s = checkTime(s);
+                            
+                            var timeSplitArr = Hour.split(":");
+                            if(timeSplitArr[0]==h)
+                            {
+                                if(m>timeSplitArr[1] && m<=59)
+                                {
+                                    notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase());     
+                                    setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
+                                    Notify(oCells.item(0).innerHTML);
+                                }
                             }
                         }
                     }
@@ -236,7 +238,9 @@ var notifiedTasks = [];
 
     function removeSpaces(string)
     {
-        return string.replace(" ","");
+        var result = string
+        result = result.replace(/ /g, '');
+        return result;
     }
 
     function DarkModeCheck()
