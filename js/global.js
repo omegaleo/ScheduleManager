@@ -62,10 +62,12 @@ var notifiedTasks = [];
         //loops through rows    
         for (i = 0; i < rowLength; i++)
         {
-            if(!notifiedTasks.includes(i))
+            //gets cells of current row  
+            var oCells = oTable.rows.item(i).cells;
+            if(oCells.item(0) != undefined)
+            if(!notifiedTasks.includes(oCells.item(0).innerHTML.toLowerCase()))
             {
-                //gets cells of current row  
-                var oCells = oTable.rows.item(i).cells;
+                
                 var today = new Date();
                 var repeat = oCells.item(1).innerHTML;
                 var repeatRate = oCells.item(2).innerHTML;
@@ -88,9 +90,9 @@ var notifiedTasks = [];
                         {
                             if(m>timeSplitArr[1] && m<=59)
                             {
-                                notifiedTasks.push(i);
+                                notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase());
                                 setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
-                                Notify(oCells.item[0].innerHTML);
+                                Notify(oCells.item(0).innerHTML);
                             }
                         }
                     }
@@ -116,7 +118,7 @@ var notifiedTasks = [];
                             {
                                 if(m>timeSplitArr[1] && m<=59)
                                 {
-                                    notifiedTasks.push(i); 
+                                    notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase()); 
                                     setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
                                     Notify(oCells.item(0).innerHTML);
                                 }
@@ -142,7 +144,7 @@ var notifiedTasks = [];
                         {
                             if(m>timeSplitArr[1] && m<=59)
                             {
-                                notifiedTasks.push(i);     
+                                notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase());     
                                 setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
                                 Notify(oCells.item(0).innerHTML);
                             }
