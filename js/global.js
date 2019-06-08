@@ -215,7 +215,7 @@ var notifiedTasks = [];
 
     function getCookie(input) {
         var cookies = document.cookie.split(';');
-        var compare = removeSpaces(input);
+        var compare = removeSpaces(input.toLowerCase());
         if(cookies!=undefined && cookies!=null && cookies.length>0)
         {
             for (var i = 0; i < cookies.length; i++) {
