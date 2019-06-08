@@ -165,7 +165,6 @@
     width: 16px;
     height: 16px;
     position:relative;
-    background: #fff;
     border-radius: 50%;
   }
 
@@ -227,4 +226,12 @@
   #addTask input[type=submit]:hover{
     background-color: #0fbf76;
     color:#fff !important;
+  }
+
+  .toggle-btn > .inner-circle #darkModeIcon{
+    color: yellow !important;
+  }
+
+  .toggle-btn.active > .inner-circle #darkModeIcon{
+    color: #fff !important;
   }

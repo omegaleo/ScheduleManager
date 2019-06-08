@@ -215,6 +215,7 @@ var notifiedTasks = [];
 
     function getCookie(input) {
         var cookies = document.cookie.split(';');
+        var compare = removeSpaces(input);
         if(cookies!=undefined && cookies!=null && cookies.length>0)
         {
             for (var i = 0; i < cookies.length; i++) {
@@ -222,9 +223,9 @@ var notifiedTasks = [];
                 {
                     var name = removeSpaces(cookies[i].split('=')[0].toLowerCase());
                     var value = removeSpaces(cookies[i].split('=')[1].toLowerCase());
-                    if (name == input) {
+                    if (name == compare) {
                       return value;
-                    } else if (value == input) {
+                    } else if (value == compare) {
                       return name;
                     }
                 }
