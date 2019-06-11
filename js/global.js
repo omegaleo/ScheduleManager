@@ -221,6 +221,22 @@ navigator.serviceWorker.ready.then(function(swRegistration) {
     	document.cookie = cname + "=" + cvalue + "; " + expires +"; path=/";
     }
 
+    function setCookieYear(cname,cvalue) //Sets a cookie to expire on the next day at midnight
+    {
+    	var now = new Date();
+    	var expire = new Date();
+    
+    	expire.setFullYear(now.getFullYear()+1);
+    	expire.setMonth(now.getMonth());
+    	expire.setDate(now.getDate());
+    	expire.setHours(0);
+    	expire.setMinutes(0);
+        expire.setSeconds(0);
+   
+    	var expires = "expires="+expire.toString();
+    	document.cookie = cname + "=" + cvalue + "; " + expires +"; path=/";
+    }
+
 
     function getCookie(input) {
         var cookies = document.cookie.split(';');
@@ -283,11 +299,11 @@ navigator.serviceWorker.ready.then(function(swRegistration) {
     {
         if(getCookie("darkmode")=="true")
         {
-            setCookie("darkmode","false");
+            setCookieYear("darkmode","false");
         }
         else
         {
-            setCookie("darkmode","true");
+            setCookieYear("darkmode","true");
         }
 
         DarkModeCheck();
