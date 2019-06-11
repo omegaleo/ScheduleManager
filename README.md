@@ -1,6 +1,6 @@
 # Schedule Manager
 
- PHP Progressive Website for a Schedule Manager with notifications
+ PHP Progressive Web App for a Schedule Manager with notifications
 
 
 ## License
