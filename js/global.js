@@ -277,3 +277,12 @@ function ToggleObjectActive(id) {
         obj.classList.add("hidden");
     }
 }
+
+function ToggleCollapse(id) {
+    var obj = document.getElementById(id);
+    if (obj.classList.contains('collapse')) {
+        obj.classList.remove('collapse');
+    } else {
+        obj.classList.add('collapse');
+    }
+}
