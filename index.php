@@ -25,7 +25,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="main-navigation">
-                        <ul class="navbar-nav mr-auto">
+                        <ul class="navbar-nav">
                         <li class="nav-item">
                             <!--<button onclick="DarkModeToggle()">Dark Mode</button>-->
                             <div id="darkModeSwitch" class="toggle-btn" onclick="DarkModeToggle()">
