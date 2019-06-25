@@ -3,3 +3,4 @@ configurations/smtp.php
 copy_to_localhost.sh
 configurations/encription_key.php
 configurations/encryption_key.php
+.htaccess
