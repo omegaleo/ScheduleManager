@@ -10,7 +10,7 @@
 ?>
 <html>
     <head>
-        <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+        
         <?php HeaderImports(); ?>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
