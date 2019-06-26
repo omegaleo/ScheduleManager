@@ -1,58 +1,68 @@
-:root{
-  --panel-bgcolor: #6ab446;
-  --bgcolor:#f2f6e9;
-  --content-color:#000;
+:root {
+    --panel-bgcolor: #6ab446;
+    --bgcolor: #f2f6e9;
+    --content-color: #000;
 }
 
+
 /*Global CSS style*/
-  body {
+
+body {
     padding: 0;
     margin: 0;
     background: var(--bgcolor);
-  }
-  /*--- navigation bar ---*/
-  .navbar {
+}
+
+
+/*--- navigation bar ---*/
+
+.navbar {
     background: var(--panel-bgcolor);
     width: 100%;
-  }
-  .nav-link,
-  .navbar-brand {
+}
+
+.nav-link,
+.navbar-brand {
     color: #fff;
     cursor: pointer;
-  }
-  .nav-link {
+}
+
+.nav-link {
     margin-right: 1em !important;
-  }
-  .nav-link:hover {
+}
+
+.nav-link:hover {
     color: var(--content-color);
-  }
-  .navbar-collapse {
+}
+
+.navbar-collapse {
     justify-content: flex-end;
-  }
+}
 
-  .content{
-      text-align:center;
-  }
+.content {
+    text-align: center;
+}
 
-  .footer {
+.footer {
     background: var(--panel-bgcolor);
     color: #fff;
-  }
-  .footer a{
+}
+
+.footer a {
     color: #fff;
     cursor: pointer;
-  }
+}
 
-  .footer a:hover {
+.footer a:hover {
     color: var(--content-color);
-  }
+}
 
-  .header{
+.header {
     display: flex !important;
     flex: 0 1 auto !important;
-  }
+}
 
-  .footer {
+.footer {
     display: flex !important;
     align-items: center;
     margin-left: 1rem !important;
@@ -60,131 +70,136 @@
     padding: 0.5rem 1rem;
     width: auto !important;
     flex: 0 1 auto !important;
-  }
+}
 
-  .content{
+.content {
     display: flex !important;
     flex: 1 1 auto !important;
     overflow: auto;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: flex-start;
-    text-align:center !important;
-  }
+    text-align: center !important;
+}
 
-  body{
+body {
     height: 100% !important;
     margin: 0;
     color: var(--content-color);
-  }
+}
 
-  .box {
+.box {
     display: flex;
     flex-flow: column;
     height: 100%;
-  }
+}
 
-  .madeBy img{
-    width:48px !important;
+.madeBy img {
+    width: 48px !important;
     height: auto !important;
-  }
+}
 
-  .hidden{
-    display:none !important;
-  }
+.hidden {
+    display: none !important;
+}
 
-  .tab {
+.tab {
     border-bottom: 0px;
     border-radius: 10px 10px 0px 0px;
     border-color: #0fbf76;
     background-color: #fff;
     box-shadow: none !important;
-  }
+}
 
-  .tab.selected, .tab:hover{
+.tab.selected,
+.tab:hover {
     background-color: #0fbf76;
-    color:#fff !important;
-  }
+    color: #fff !important;
+}
 
-  .tabPage{
+.tabPage {
     padding: 10px !important;
     background-color: #0fbf76;
     border-radius: 10px !important;
-  }
+}
 
-  .tabControl{
-    margin:0 auto !important;
-  }
+.tabControl {
+    margin: 0 auto !important;
+}
 
-  .tabControl input[type=text],.tabControl input[type=email],.tabControl input[type=password]{
+.tabControl input[type=text],
+.tabControl input[type=email],
+.tabControl input[type=password] {
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
-  }
+}
 
-  .page-title{
-    width:100%;
-    margin-top:10px;
-  }
+.page-title {
+    width: 100%;
+    margin-top: 10px;
+}
 
-  .tableTasks{
+.tableTasks {
     margin-top: 20px !important;
     text-align: center;
     margin: 0 auto;
     width: 80%;
-  }
+}
 
-  .tableTasks tr:first-child{
+.tableTasks tr:first-child {
     background-color: var(--panel-bgcolor);
     color: white;
-  }
+}
 
-  .tableTasks td{
+.tableTasks td {
     padding-right: 20px;
     padding-left: 20px;
-  }
+}
 
-  #dateTime, .lblEvents, .addTaskBtn{
-    margin:0 auto;
-  }
+#dateTime,
+.lblEvents,
+.addTaskBtn {
+    margin: 0 auto;
+}
 
 
-  /*Toggle Switch*/
+/*Toggle Switch*/
 
-  .toggle-btn{
+.toggle-btn {
     width: 50px;
     height: 24px;
     background: gray;
     border-radius: 10px;
     padding: 5px;
     margin-top: 9px;
-  }
+}
 
-  .toggle-btn > .inner-circle {
+.toggle-btn>.inner-circle {
     width: 16px;
     height: 16px;
-    position:relative;
+    position: relative;
     border-radius: 50%;
-  }
+}
 
-  .toggle-btn.active {
+.toggle-btn.active {
     background: #00acee;
-  }
+}
 
-  .toggle-btn.active > .inner-circle{
+.toggle-btn.active>.inner-circle {
     margin-left: 25px;
-  }
+}
 
-  #darkModeIcon{
+#darkModeIcon {
     color: #000 !important;
-  }
+}
 
-  .navbar-brand:hover{
+.navbar-brand:hover {
     color: var(--content-color) !important;
-  }
+}
 
-  form#addTask {
+form#addTask {
     margin: 0 auto;
     position: absolute;
     top: 50%;
@@ -196,42 +211,47 @@
     text-align: center;
     border-radius: 20px;
     background-color: var(--panel-bgcolor);
-  }
+}
 
-  #addTask input, #addTask select{
+#addTask input,
+#addTask select {
     margin-top: 5px;
     margin-bottom: 5px;
-  }
+}
 
-  .formCloseButton{
+.formCloseButton {
     position: absolute;
     right: 24px;
     top: 10px;
     background-color: red;
     width: 22px;
     border-radius: 5px;
-  }
+}
 
-  .formCloseButton:hover{
+.formCloseButton:hover {
     background-color: darkred;
-  }
+}
 
-  #addTask input[type=submit] {
+#addTask input[type=submit] {
     border-radius: 10px;
     border-color: #0fbf76;
     background-color: #fff;
     box-shadow: none !important;
-  }
+}
 
-  #addTask input[type=submit]:hover{
+#addTask input[type=submit]:hover {
     background-color: #0fbf76;
-    color:#fff !important;
-  }
-
-  .toggle-btn > .inner-circle #darkModeIcon{
-    color: yellow !important;
-  }
-
-  .toggle-btn.active > .inner-circle #darkModeIcon{
     color: #fff !important;
-  }
+}
+
+.toggle-btn>.inner-circle #darkModeIcon {
+    color: yellow !important;
+}
+
+.toggle-btn.active>.inner-circle #darkModeIcon {
+    color: #fff !important;
+}
+
+.content {
+    padding-bottom: 70px;
+}
