@@ -143,15 +143,22 @@ function CheckNotifications() {
     }
 }
 
+
 function Notify(string) {
     document.getElementById("notification_player").play();
-    Notification.requestPermission().then(function(result) {
-        if (result === 'granted') {
-            navigator.serviceWorker.ready.then(function(registration) {
-                registration.showNotification(string);
-            });
-        }
-    });
+    if (typeof Notification !== "undefined") {
+        Notification.requestPermission().then(function(result) {
+            if (result === 'granted') {
+                navigator.serviceWorker.ready.then(function(registration) {
+                    registration.showNotification(string);
+                });
+            }
+        });
+    }
+
+    if (typeof Android.Notify !== "undefined") {
+        Android.Notify(string);
+    }
 }
 
 function checkTime(i) {
