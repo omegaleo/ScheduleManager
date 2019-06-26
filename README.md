@@ -2,6 +2,7 @@
 
  PHP Progressive Web App for a Schedule Manager with notifications
 
+ Android WebView based interface: [https://github.com/omegaleo/ScheduleManager-Android]([https://github.com/omegaleo/ScheduleManager-Android])
 
 ## License
 
