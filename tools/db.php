@@ -235,7 +235,7 @@
     {
         $con = GetConnection();
         $html = "";
-        $sql = "SELECT * FROM tasks WHERE ".$conditions;
+        $sql = "SELECT * FROM Tasks WHERE ".$conditions;
         $res = $con->query($sql);
 
         if($res!==false)
