@@ -230,4 +230,49 @@
         $con = GetConnection();
         return $con->real_escape_string($value);
     }
+
+    function GenerateTaskPanels($conditions)
+    {
+        $con = GetConnection();
+        $html = "";
+        $sql = "SELECT * FROM tasks WHERE ".$conditions;
+        $res = $con->query($sql);
+
+        if($res!==false)
+        {
+            while($row=$res->fetch_assoc())
+            {
+                if($row["Repeat"]=="1")
+                {
+                    if($row["RepeatRate"]=="Weekly")
+                    {
+                        echo '  <div class="taskPanel" id="weekly">
+                                <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
+                                <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Weekly - '.getDayOfWeekString($row["DayOfWeek"]).'</label><br>
+                                <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
+                            </div>';
+                    }
+                    else
+                    {
+                        echo '  <div class="taskPanel" id="daily">
+                                <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
+                                <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Daily</label><br>
+                                <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
+                            </div>';
+                    }
+                }
+                else
+                {
+                    echo '  <div class="taskPanel" id="noRepeat">
+                                <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
+                                <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;'.$row["Date"].'</label><br>
+                                <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
+                            </div>';
+                }
+            }
+        }
+
+
+        return $html;
+    }
 ?>

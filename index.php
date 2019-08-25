@@ -65,10 +65,12 @@
                 ?>
                 <a class="addTaskBtn" onclick="ToggleObjectActive('addTask');">Add Task</a><br>
                 <span class="lblEvents">Today's events:</span><br>
+                <br>
                 <?php 
                     $date = date('Y-m-d');
                     $dayOfWeek = date('w');
                     echo GetTableWithConditions("Tasks","UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND (Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."') OR (RepeatRate='Daily')) ORDER BY Hour ASC","ID,GUID,UserGUID"); 
+                    echo GenerateTaskPanels("UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND (Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."') OR (RepeatRate='Daily')) ORDER BY Hour ASC","ID,GUID,UserGUID");
                 ?>
                 <?php
                     }

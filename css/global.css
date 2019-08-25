@@ -2,6 +2,7 @@
     --panel-bgcolor: #6ab446;
     --bgcolor: #f2f6e9;
     --content-color: #000;
+    --loginFormBgColor: #414fff;
 }
 
 
@@ -104,22 +105,31 @@ body {
 
 .tab {
     border-bottom: 0px;
-    border-radius: 10px 10px 0px 0px;
-    border-color: #0fbf76;
+    border-color: var(--loginFormBgColor);
     background-color: #fff;
     box-shadow: none !important;
+    width: 49%;
+    margin: 0;
 }
 
 .tab.selected,
 .tab:hover {
-    background-color: #0fbf76;
+    background-color: var(--loginFormBgColor);
     color: #fff !important;
 }
 
 .tabPage {
     padding: 10px !important;
-    background-color: #0fbf76;
-    border-radius: 10px !important;
+    background-color: var(--loginFormBgColor);
+    height: 200px;
+    width: 300px;
+    display: table;
+}
+
+.tabPage form {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .tabControl {
@@ -134,6 +144,45 @@ body {
     margin-bottom: 5px;
     padding-left: 5px;
     padding-right: 5px;
+    background-color: transparent;
+    color: #fff;
+    font-weight: bold;
+    border: 0px;
+    border-bottom: 1px solid;
+    border-radius: 0;
+}
+
+.tabControl input[type=submit] {
+    border-radius: 1px;
+    background: #7abcff;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #7abcff 0%, #60abf8 44%, #4096ee 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7abcff 0%, #60abf8 44%, #4096ee 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#7abcff', endColorstr='#4096ee', GradientType=0);
+    /* IE6-9 */
+    border-radius: 5px;
+    width: 90px;
+    height: 30px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.tabControl input[type=submit]:hover {
+    background: #3097ff;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #3097ff 0%, #60abf8 44%, #097bed 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #3097ff 0%, #60abf8 44%, #097bed 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #3097ff 0%, #60abf8 44%, #097bed 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3097ff', endColorstr='#097bed', GradientType=0);
+    /* IE6-9 */
 }
 
 .page-title {
@@ -254,4 +303,57 @@ form#addTask {
 
 .content {
     padding-bottom: 70px;
+}
+
+.taskPanel {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 0px;
+    background: #000;
+    border-radius: 10px;
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.taskPanel#weekly {
+    background: #a90329;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=0);
+    /* IE6-9 */
+}
+
+.taskPanel#noRepeat {
+    background: #4c4c4c;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=0);
+    /* IE6-9 */
+}
+
+.taskPanel#daily {
+    background: #3b679e;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #3b679e 0%, #2b88d9 50%, #207cca 51%, #7db9e8 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #3b679e 0%, #2b88d9 50%, #207cca 51%, #7db9e8 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #3b679e 0%, #2b88d9 50%, #207cca 51%, #7db9e8 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3b679e', endColorstr='#7db9e8', GradientType=0);
+    /* IE6-9 */
+}
+
+.tableTasks {
+    display: none;
 }
