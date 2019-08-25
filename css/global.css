@@ -313,6 +313,9 @@ form#addTask {
     border-radius: 10px;
     margin-top: 5px;
     padding: 5px;
+}
+
+.taskPanel label {
     color: #fff !important;
 }
 
