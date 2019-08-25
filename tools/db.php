@@ -246,28 +246,28 @@
                 {
                     if($row["RepeatRate"]=="Weekly")
                     {
-                        echo '  <div class="taskPanel" id="weekly">
+                        $html .= '  <div class="taskPanel" id="weekly">
                                 <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
                                 <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Weekly - '.getDayOfWeekString($row["DayOfWeek"]).'</label><br>
                                 <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
-                            </div>';
+                            </div><br>';
                     }
                     else
                     {
-                        echo '  <div class="taskPanel" id="daily">
+                        $html .= '  <div class="taskPanel" id="daily">
                                 <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
                                 <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Daily</label><br>
                                 <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
-                            </div>';
+                            </div><br>';
                     }
                 }
                 else
                 {
-                    echo '  <div class="taskPanel" id="noRepeat">
+                    $html .= '  <div class="taskPanel" id="noRepeat">
                                 <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
                                 <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;'.$row["Date"].'</label><br>
                                 <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
-                            </div>';
+                            </div><br>';
                 }
             }
         }
