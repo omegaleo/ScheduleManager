@@ -1,0 +1,5 @@
+{
+    "require": {
+        "unloq/unloq-php-sdk": "^1.1"
+    }
+}

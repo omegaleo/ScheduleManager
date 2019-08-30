@@ -240,6 +240,7 @@
 
         if($res!==false)
         {
+            $formID = "'addTask'";
             while($row=$res->fetch_assoc())
             {
                 if($row["Repeat"]=="1")
@@ -247,27 +248,30 @@
                     if($row["RepeatRate"]=="Weekly")
                     {
                         $html .= '  <div class="taskPanel" id="weekly">
-                                <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
-                                <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Weekly - '.getDayOfWeekString($row["DayOfWeek"]).'</label><br>
-                                <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
-                            </div><br>';
+                                        <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
+                                        <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Weekly - '.getDayOfWeekString($row["DayOfWeek"]).'</label><br>
+                                        <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>';
+                            
                     }
                     else
                     {
                         $html .= '  <div class="taskPanel" id="daily">
-                                <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
-                                <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Daily</label><br>
-                                <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
-                            </div><br>';
+                                        <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
+                                        <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Daily</label><br>
+                                        <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>';
                     }
+
+                    $html.='            <div class="actions"><a id="'.$row["GUID"].'" onclick="ChangeFormToEdit('.$formID.',this.id);" href="#"><i class="fas fa-edit"></i></a>&nbsp;<a href="actions/delete_task.php?id='.$row["GUID"].'"><i class="fas fa-trash-alt"></i></a></div>
+                                    </div><br>';
                 }
                 else
                 {
                     $html .= '  <div class="taskPanel" id="noRepeat">
-                                <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
-                                <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;'.$row["Date"].'</label><br>
-                                <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>
-                            </div><br>';
+                                    <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
+                                    <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;'.$row["Date"].'</label><br>
+                                    <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>';
+                    $html.='        <div class="actions"><a id="'.$row["GUID"].'" onclick="ChangeFormToEdit('.$formID.',this.id);" href="#"><i class="fas fa-edit"></i></a>&nbsp;<a href="actions/delete_task.php?id='.$row["GUID"].'"><i class="fas fa-trash-alt"></i></a></div>
+                                </div><br>';
                 }
             }
         }

@@ -293,3 +293,17 @@ function ToggleCollapse(id) {
         obj.classList.add('collapse');
     }
 }
+
+//Change the specified form's action to the actions/edit_task.php script
+function ChangeFormToEdit(id, guidToEdit) {
+    var form = document.getElementById(id);
+    form.action = "actions/edit_task.php?id=" + guidToEdit;
+    ToggleObjectActive(id);
+}
+
+//Change the specified form's action to the actions/add_task.php script
+function ChangeFormToAdd(id) {
+    var form = document.getElementById(id);
+    form.action = "actions/add_task.php";
+    ToggleObjectActive(id);
+}

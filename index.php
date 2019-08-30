@@ -63,7 +63,7 @@
                     if(isset($_COOKIE['username']))
                     {
                 ?>
-                <a class="addTaskBtn" onclick="ToggleObjectActive('addTask');">Add Task</a><br>
+                <a class="addTaskBtn" onclick="ChangeFormToAdd('addTask');"><i class="fas fa-plus-circle"></i>&nbsp;Add Task</a><br>
                 <span class="lblEvents">Today's events:</span><br>
                 <br>
                 <?php 
@@ -79,7 +79,7 @@
 
             <form class="hidden" id="addTask" action="actions/add_task.php" method="POST">
                 <a class="formCloseButton" onclick="ToggleObjectActive('addTask');">X</a><br>
-                <h3>Add Task</h3>
+                <h3>Add/Edit Task</h3>
                 <input type="text" name="desc" placeholder="Description"/><br>
                 <span>Repeat?</span>&nbsp;<input type="checkbox" name="repeat"/><br>
                 <span>Repeat Rate:</span>&nbsp;<select name="repeatRate">
