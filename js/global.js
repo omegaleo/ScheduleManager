@@ -251,18 +251,18 @@ function DarkModeCheck() {
             root.style.setProperty("--bgcolor", "#565656");
             root.style.setProperty("--content-color", "#fff");
             document.getElementById("darkModeSwitch").classList.add("active");
-            document.getElementById("darkModeIcon").classList.add("fa-moon");
-            document.getElementById("darkModeIcon").classList.remove("fa-sun");
         }
+        document.getElementById("darkModeIcon").classList.add("fa-moon");
+        document.getElementById("darkModeIcon").classList.remove("fa-sun");
     } else {
         if (document.getElementById("darkModeSwitch").classList.contains("active")) {
             root.style.setProperty("--panel-bgcolor", "#6ab446");
             root.style.setProperty("--bgcolor", "#f2f6e9");
             root.style.setProperty("--content-color", "#000");
             document.getElementById("darkModeSwitch").classList.remove("active");
-            document.getElementById("darkModeIcon").classList.add("fa-sun");
-            document.getElementById("darkModeIcon").classList.remove("fa-moon");
         }
+        document.getElementById("darkModeIcon").classList.add("fa-sun");
+        document.getElementById("darkModeIcon").classList.remove("fa-moon");
     }
 }
 
