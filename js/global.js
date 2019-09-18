@@ -32,6 +32,10 @@ function startTime() {
     m = checkTime(m);
     s = checkTime(s);
 
+    if (h == 00 && m == 00 && s == 00) {
+        location.reload();
+    }
+
     var weekday = new Array(7);
     weekday[0] = "Sunday";
     weekday[1] = "Monday";
