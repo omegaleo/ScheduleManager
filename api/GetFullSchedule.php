@@ -3,7 +3,7 @@
 
     $username = $_POST['username'];
 
-    $userGUID = GetTableValue('users', 'GUID', 'WHERE Username="'.$username.'"');
+    $userGUID = GetTableValue('Users', 'GUID', 'WHERE Username="'.$username.'"');
 
     ExecuteQueryAndReturnEncodedValue("SELECT * FROM Tasks WHERE UserGUID='$userGUID'");
 ?>
