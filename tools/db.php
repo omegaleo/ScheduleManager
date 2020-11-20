@@ -253,6 +253,14 @@
                                         <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>';
                             
                     }
+                    if($row["RepeatRate"]=="Hourly")
+                    {
+                        $html .= '  <div class="taskPanel" id="hourly">
+                                        <label id="description"><i class="fas fa-sticky-note"></i>&nbsp;'.$row["Description"].'</label><br>
+                                        <label id="repeat"><i class="fas fa-calendar"></i>&nbsp;Hourly</label><br>
+                                        <label id="time"><i class="fas fa-clock"></i>&nbsp;'.$row["Hour"].'</label><br>';
+                            
+                    }
                     else
                     {
                         $html .= '  <div class="taskPanel" id="daily">
