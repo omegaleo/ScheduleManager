@@ -69,8 +69,8 @@
                 <?php 
                     $date = date('Y-m-d');
                     $dayOfWeek = date('w');
-                    echo GetTableWithConditions("Tasks","UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND (Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."') OR (RepeatRate='Daily')) ORDER BY Hour ASC","ID,GUID,UserGUID"); 
-                    echo GenerateTaskPanels("UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND (Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."') OR (RepeatRate='Daily')) ORDER BY Hour ASC","ID,GUID,UserGUID");
+                    echo GetTableWithConditions("Tasks","UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND (Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."') OR (RepeatRate='Daily') OR OR (RepeatRate='Hourly')) ORDER BY Hour ASC","ID,GUID,UserGUID"); 
+                    echo GenerateTaskPanels("UserGUID = '".GetTableValue("Users", "GUID", "WHERE Username='".$username."'")."' AND (Date='".$date."' OR (RepeatRate='Weekly' AND DayOfWeek='".$dayOfWeek."') OR (RepeatRate='Daily') OR (RepeatRate='Hourly')) ORDER BY Hour ASC","ID,GUID,UserGUID");
                 ?>
                 <?php
                     }
