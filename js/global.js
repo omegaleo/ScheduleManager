@@ -83,7 +83,7 @@ function CheckNotifications() {
                     var m = today.getMinutes();
                     var s = today.getSeconds();
 
-                    if (repeat == "1") {
+                    if (repeat == "1" || repeat == "Repeat") {
                         if (repeatRate == "Daily") 
                         {
                             m = checkTime(m);
