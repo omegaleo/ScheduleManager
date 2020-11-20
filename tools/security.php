@@ -69,7 +69,7 @@
         // We check if token is ok !
         if ($receivedToken != $token)
         {
-            echo 'wrong Token !';
+            //echo 'wrong Token !';
             return false;
         }
 

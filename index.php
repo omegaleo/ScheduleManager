@@ -86,6 +86,7 @@
                     <option value="" selected></option>
                     <option value="Daily">Daily</option>
                     <option value="Weekly">Weekly</option>
+                    <option value="Hourly">Hourly</option>
                 </select><br>
                 <span>Date:</span>&nbsp;<input type="date" name="taskDate"/><br>
                 <span>Day of the Week:</span>&nbsp;<select name="dayOfWeek">
@@ -98,7 +99,7 @@
                     <option value="5">Friday</option>
                     <option value="6">Saturday</option>
                 </select><br>
-                <span>Time:</span>&nbsp;<input type="time" name="time" name="hour"/>
+                <span>Time:</span>&nbsp;<input type="time" name="time" name="hour"/><label>In case of hourly repeat rate just set the minutes and leave the hours at 00</label>
                 <input type="hidden" name="userGUID" value="<?php echo GetTableValue("Users", "GUID", "WHERE Username='".$username."'"); ?>"/><br>
                 <input type="submit" value="Add"/>
             </form>
@@ -107,7 +108,7 @@
                 Your browser does not support the audio element.
             </audio>
             <footer class="page-footer footer container-fluid fixed-bottom">
-                <span class="madeBy">Made by <a href="https://omegaleo.pt" targt="_blank"><img src="img/Logo.png"></a></span>
+                <span class="madeBy">Made by <a href="https://omegaleo.pt" target="_blank"><img src="img/Logo.png"></a></span>
             </footer>
         </div>
     </body>

@@ -84,19 +84,33 @@ function CheckNotifications() {
                     var s = today.getSeconds();
 
                     if (repeat == "1") {
-                        if (repeatRate == "Daily") {
+                        if (repeatRate == "Daily") 
+                        {
                             m = checkTime(m);
                             s = checkTime(s);
 
                             var timeSplitArr = Hour.split(":");
-                            if (timeSplitArr[0] == h) {
-                                if (m >= timeSplitArr[1] && m <= 59) {
+                            if (timeSplitArr[0] == h) 
+                            {
+                                if (m >= timeSplitArr[1] && m <= 59) 
+                                {
                                     notifiedTasks.push(oCells.item(0).innerHTML.toLowerCase());
                                     setCookie('notifiedtasks', JSON.stringify(notifiedTasks));
                                     Notify(oCells.item(0).innerHTML);
                                 }
                             }
-                        } else if (repeatRate == "Weekly") {
+                        }
+                        else if(repeatRate == "Hourly") 
+                        {
+                            m = checkTime(m);
+                            var timeSplitArr = Hour.split(":");
+                            if (m == timeSplitArr[1]) 
+                            {
+                                Notify(oCells.item(0).innerHTML);
+                            }
+                        }
+                        else if (repeatRate == "Weekly") 
+                        {
                             var weekday = new Array(7);
                             weekday[0] = "Sunday";
                             weekday[1] = "Monday";
